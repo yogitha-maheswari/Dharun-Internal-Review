@@ -5,8 +5,8 @@ import { Toaster } from "../components/ui/toaster";
 import { Toaster as Sonner } from "../components/ui/sonner";
 
 export const metadata: Metadata = {
-  title: "Siya Portfolio",
-  description: "Fashion model portfolio",
+  title: "Dharun - Internal Review",
+  description: "A confidential performance evaluation analyzing growth, resilience, ambition, and the truth behind the metrics.",
 };
 
 export default function RootLayout({
