@@ -1,0 +1,269 @@
+/* ===========================
+   Fonts (MUST be first)
+=========================== */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap");
+
+/* ===========================
+   Tailwind v4 Import
+=========================== */
+@import "tailwindcss";
+
+/* ===========================
+   CSS Variables
+=========================== */
+:root {
+  --background: 0 0% 5%;
+  --foreground: 0 0% 92%;
+
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 92%;
+
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 92%;
+
+  --primary: 8 85% 56%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 85%;
+
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 55%;
+
+  --muted-soft: 0 0% 48%;
+
+  --accent: 20 90% 52%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 8 85% 56%;
+
+  --radius: 0.75rem;
+
+  /* Gradients */
+  --gradient-warm: linear-gradient(135deg, hsl(8, 85%, 56%), hsl(25, 95%, 53%));
+  --gradient-warm-soft: linear-gradient(135deg, hsl(8, 85%, 56%, 0.15), hsl(25, 95%, 53%, 0.08));
+  --gradient-glow: radial-gradient(ellipse at center, hsl(8, 85%, 56%, 0.12), transparent 70%);
+
+  /* Sidebar */
+  --sidebar-background: 0 0% 6%;
+  --sidebar-foreground: 0 0% 85%;
+  --sidebar-primary: 8 85% 56%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 12%;
+  --sidebar-accent-foreground: 0 0% 85%;
+  --sidebar-border: 0 0% 15%;
+  --sidebar-ring: 8 85% 56%;
+}
+
+/* ===========================
+   Base Styles
+=========================== */
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
+
+/* ===========================
+   Layout (from App.css)
+=========================== */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* ===========================
+   Components
+=========================== */
+/* Soft muted text (for subtle labels) */
+/* Heart shaped photo frame */
+
+.text-muted-soft {
+  color: hsl(var(--muted-soft));
+}
+
+.text-foreground {
+  color: hsl(var(--foreground) / 0.8);
+}
+
+
+.font-serif-elegant {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.font-heading {
+  font-family: "Playfair Display", serif;
+}
+
+/* Glass card */
+.glass-card {
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  background: hsla(0, 0%, 10%, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card-hover {
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.glass-card-hover:hover {
+  background: hsla(0, 0%, 12%, 0.7);
+  border-color: hsl(8, 85%, 56%, 0.3);
+  box-shadow: 0 0 30px hsl(8, 85%, 56%, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-warm-gradient {
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow */
+.glow-red {
+  box-shadow: 0 0 40px hsl(8, 85%, 56%, 0.2),
+    0 0 80px hsl(8, 85%, 56%, 0.1);
+}
+
+/* Ambient glow background */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: var(--gradient-glow);
+  animation: ambient-pulse 8s ease-in-out infinite alternate;
+}
+
+/* ===========================
+   Animations
+=========================== */
+@keyframes ambient-pulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.06);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.06);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Utility animation classes */
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ===========================
+   Risk item hover effect
+=========================== */
+.risk-item {
+  color: hsl(var(--muted-soft));
+  transition: color 0.3s ease;
+}
+
+.risk-item:hover {
+  color: hsl(var(--foreground));
+}
+
+/* Achievement hover effect */
+.achievement-item {
+  color: hsl(var(--muted-soft));
+  transition: color 0.3s ease;
+}
+
+.achievement-card:hover .achievement-item {
+  color: hsl(var(--foreground));
+}
+
