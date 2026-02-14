@@ -18,12 +18,3 @@ It is a web experience built with Next.js, Tailwind CSS, and Framer Motion.
 npm install
 npm run dev
 ```
-
-Then push:
-
-```bash
-git add .
-git commit -m "Add README"
-git push
-```
-
